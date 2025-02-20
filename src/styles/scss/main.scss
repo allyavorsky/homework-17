@@ -1,0 +1,23 @@
+@import "_variables";
+@import "_mixins";
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+  outline: none;
+}
+
+html {
+  line-height: normal;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16px;
+}
+  
