@@ -7,11 +7,276 @@
   <title>Homework 17 | Final Web Project</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
-  <link rel="stylesheet" href="/src/styles/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="src/styles/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/3.1.1/iconify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+  <header class="masthead">
+    <div class="container">
+
+      <a class="logo" href="index.html">
+        <span class="logo__icon iconify" data-icon="ix:polygon-line"></span>
+        <span class="logo__text">TechAvenue Services</span>
+      </a>
+
+      <nav class="menu" aria-label="Masthead Navigation">
+        <a class="menu__item" href="#about">Greetings From Us</a>
+        <a class="menu__item" href="#services">Our Service Adventure</a>
+        <a class="menu__item" href="#team">Meet Our Service Team</a>
+      </nav>
+
+      <div class="button-group">
+        <a class="button button--border button--white masthead-button" href="#services">Dive Into Our Services</a>
+        <button class="button button--border button--white button--square menu-toggle">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <section class="hero"
+      style="background: linear-gradient(to top, rgba(34, 40, 49, 0.48)), url(src/images/image-2.webp) no-repeat center center / cover;">
+
+      <div class=" container">
+
+        <div class="hero__banner">
+          <div class="headline headline--center">
+            <h1 class="headline__title">Sparking Your App <br>Ideas</h1>
+            <p class="headline__textarea">Creating digital journeys passionately</p>
+          </div>
+
+          <div class="button-group">
+            <button class="button">Start Your Journey <i class="iconify" data-icon="gg:chevron-right"></i></button>
+            <button class="button button--border">Know More</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about" class="light">
+      <div class="container">
+
+        <div class="headline">
+          <p class="headline__label">Passion & Commitment</p>
+          <h2 class="headline__title">Fueled by innovation, we aim to <br>revolutionize businesses through <br>
+            technology, creativity, and strategic <br>acumen.
+          </h2>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+
+        <div class="headline headline--center">
+          <h2 class="headline__title">Our Service Methodology</h2>
+          <p class="headline__textarea">Uncover our systematic approach to turning your dreams into reality.</p>
+        </div>
+
+        <div class="slider-wrapper">
+          <div class="swiper-control">
+            <div class="swiper-control__prev"><i class="iconify" data-icon="si:chevron-left-circle-fill"></i></div>
+            <div class="swiper-control__next"><i class="iconify" data-icon="si:chevron-right-circle-fill"></i></div>
+          </div>
+
+          <div id="service-slider" class="swiper">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div class="card card--boxed">
+
+                  <div class="card__panel">
+                    <p class="card__title">Continual Assistance</p>
+                    <p class="card__textarea">We offer continuous service updates for optimal performance.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="thumbnail">
+                    <img class="thumbnail__media" src="src/images/image-1.webp" alt="image" loading="lazy">
+                  </div>
+
+                  <div class="card__panel">
+                    <p class="card__label">Step 1</p>
+                    <p class="card__title">Service Evaluation</p>
+                    <p class="card__textarea">Your ideas are valuable to, we discuss potential strategies anticipated.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <figure class="thumbnail">
+                    <img class="thumbnail__media" src="src/images/image-2.webp" alt="image" loading="lazy">
+                  </figure>
+
+                  <div class="card__panel">
+                    <p class="card__label">Step 2</p>
+                    <p class="card__title">Design & Execute</p>
+                    <p class="card__textarea">Our experts craft the concept and execute the solution, keeping you fully
+                      informed.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="card">
+                  <figure class="thumbnail">
+                    <img class="thumbnail__media" src="src/images/image-3.webp" alt="image" loading="lazy">
+                  </figure>
+
+                  <div class="card__panel">
+                    <p class="card__label">Step 3</p>
+                    <p class="card__title">Service Assurance</p>
+                    <p class="card__textarea">Strict testing guarantees top-notch quality and performance.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            var swiper = new Swiper("#service-slider", {
+              slidesPerView: 1,
+              spaceBetween: 32,
+              navigation: {
+                nextEl: ".swiper-control__next",
+                prevEl: ".swiper-control__prev",
+              },
+              breakpoints: {
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 32,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 32,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 32,
+                },
+              },
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="flexgrid">
+      <div class="container">
+
+        <div class="flexgrid__column" style="padding: 0;">
+          <img class="flexgrid__banner" src="src/images/image-5.webp" alt="">
+        </div>
+
+        <div class="flexgrid__column">
+
+          <div class="headline">
+            <h2 class="headline__title">Ingenious <br>Services</h2>
+            <p class="headline__textarea">Check out our latest projects <br>demonstrating our expertise.</p>
+          </div>
+
+          <div class="iconbox-group">
+            <div class="iconbox iconbox--small">
+              <img class="iconbox__image" src="src/images/image-4.webp" alt="image">
+              <div class="iconbox__panel">
+                <p class="iconbox__title">Alex Johnson</p>
+                <p class="iconbox__textarea">Lead Flutter Developer</p>
+              </div>
+            </div>
+
+            <div class="iconbox iconbox--small">
+              <img class="iconbox__image" src="src/images/image-5.webp" alt="image">
+              <div class="iconbox__panel">
+                <p class="iconbox__title">Samantha Lee</p>
+                <p class="iconbox__textarea">UI/UX Guru</p>
+              </div>
+            </div>
+
+            <div class="iconbox iconbox--small">
+              <img class="iconbox__image" src="src/images/image-6.webp" alt="image">
+              <div class="iconbox__panel">
+                <p class="iconbox__title">Michael Brown</p>
+                <p class="iconbox__textarea">Digital Marketing Whiz</p>
+              </div>
+            </div>
+
+            <div class="iconbox iconbox--small">
+              <img class="iconbox__image" src="src/images/image-7.webp" alt="image">
+              <div class="iconbox__panel">
+                <p class="iconbox__title">Emily Thompson</p>
+                <p class="iconbox__textarea">Web Development Lead</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="flexgrid">
+      <div class="container">
+
+        <div class="flexgrid__column">
+          <div class="iconbox">
+            <img class="iconbox__image" src="src/images/image-3.webp" alt="image">
+            <p class="iconbox__title">TechAvenue's team is unmatched. They surpassed our expectations and.</p>
+            <p class="iconbox__textarea">Chris Parker, CEO</p>
+          </div>
+        </div>
+
+        <div class="flexgrid__column flexgrid__column--bg">
+          <div class="iconbox">
+            <img class="iconbox__image" src="src/images/image-2.webp" alt="image">
+            <p class="iconbox__title">Their meticulousness and innovative strategy have dramatically enhanced our
+              business.</p>
+            <p class="iconbox__textarea">Ava Davis, CMO</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="container">
+
+      <div class="colophon__info">
+        <a class="logo" href="index.html">
+          <span class="logo__icon iconify" data-icon="meteor-icons:heart"></span>
+          <span class="logo__text">TechAvenue Services</span>
+        </a>
+
+        <p class="copyright">© TechAvenue Services 2025</p>
+      </div>
+
+      <div class="colophon__contact">
+        <a href="#">@TechAvenueAppDev</a>
+        <a href="#">@TechAvenueWebDev</a>
+        <a href="#">@TechAvenueDM</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="src/scripts/main.js"></script>
 </body>
 
 </html>

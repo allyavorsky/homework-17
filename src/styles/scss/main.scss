@@ -1,10 +1,13 @@
 @import "_variables";
 @import "_mixins";
 
+//
 *,
-::after,
-::before {
+*::after,
+*::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 *:focus,
@@ -19,5 +22,464 @@ html {
 
 body {
   font-size: 16px;
+  line-height: 1.4;
+
+  background: $color-dark;
+  color: $color-gray-light;
+  font-family: $font-primary;
+
+  @include tablet {
+    font-size: 14px;
+  }
 }
-  
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  padding: 128px 0;
+  position: relative;
+
+  @include tablet {
+    padding: 64px 0;
+  }
+}
+
+@include tablet {
+  br {
+    display: none;
+  }
+}
+
+//
+section.light {
+  color: $color-gray;
+  background: $color-gray-light;
+}
+
+//
+.container {
+  @include flex(column, unset, unset, 64px);
+
+  margin-inline: auto;
+  width: min(100% - (64px), 1180px);
+
+  @include tablet {
+    gap: 32px;
+  }
+}
+
+// card
+.card {
+  width: 100%;
+  @include flex(column, center, center, 16px);
+
+  &--boxed {
+    height: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    background: $color-dark-light;
+  }
+
+  //
+  &__panel {
+    text-align: center;
+    @include flex(column, center, center, 8px);
+  }
+
+  &__label {
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+// swiper
+.swiper-control {
+  @include flex(row, flex-end, center, 8px);
+
+  @include tablet {
+    justify-content: center;
+  }
+
+  &__next,
+  &__prev {
+    font-size: 40px;
+    color: $color-accent;
+    transition: ease-in-out 0.16s;
+  }
+
+  &__next:hover,
+  &__prev:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+//
+.swiper-slide {
+  height: auto !important;
+}
+
+// thumbnail
+.thumbnail {
+  width: 100%;
+  height: 256px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
+
+  &__media {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+
+// iconbox
+.iconbox {
+  @include flex(column, center, center, 16px);
+  text-align: center;
+
+  //
+  &--small {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  //
+  &__image {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+
+  //
+  &__title {
+    font-size: 20px;
+  }
+
+  //
+  &__textarea {
+    font-size: 14px;
+    color: $color-gray;
+  }
+}
+
+.iconbox-group {
+  $gap: 48px;
+  @include flex(row, center, center, $gap);
+  flex-wrap: wrap;
+
+  .iconbox {
+    width: calc(50% - calc($gap / 2));
+  }
+}
+
+// button
+.button {
+  $button-size: 48px;
+  @include flex(row, center, center, 4px);
+
+  padding: 0 24px;
+  height: $button-size;
+
+  color: inherit;
+  background: transparent;
+  background: $color-accent;
+
+  font-weight: 600;
+  font-size: inherit;
+  border-radius: 4px;
+  font-family: inherit;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  transition: ease-in-out 0.16s;
+
+  //
+  &:hover {
+    opacity: 0.8;
+  }
+
+  //
+  &--square {
+    padding: 0;
+    font-size: 20px;
+    width: $button-size;
+  }
+
+  //
+  &--border {
+    color: $color-accent;
+    background: transparent;
+    border-color: $color-accent;
+  }
+
+  //
+  &--white {
+    color: $color-white;
+    border-color: $color-white;
+  }
+}
+
+//
+.button-group {
+  @include flex(row, flex-start, center, 16px);
+
+  @include tablet {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+// menu
+.menu {
+  @include flex(row, unset, center, 48px);
+
+  @include desktop {
+    display: none;
+  }
+
+  &--active {
+    left: 0;
+    gap: 0px;
+    top: 64px;
+    opacity: 1;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    background: $color-dark-light;
+  }
+
+  &__item {
+    @include desktop {
+      width: 100%;
+      padding: 16px 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+// logo
+.logo {
+  @include flex(row, unset, center, 8px);
+
+  //
+  &__icon {
+    font-size: 32px;
+  }
+
+  //
+  &__text {
+    font-weight: 600;
+  }
+}
+
+// headline
+.headline {
+  gap: 16px 0;
+  display: flex;
+  flex-direction: column;
+
+  //
+  &--center {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  //
+  &__label {
+    font-weight: 700;
+    color: $color-primary;
+    font-size: 20px;
+  }
+
+  //
+  &__title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.24;
+
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+
+  //
+  &__textarea {
+    font-size: 20px;
+
+    @include tablet {
+      font-size: 16px;
+    }
+  }
+}
+
+// masthead
+.masthead {
+  @include flex(row, center, center, 32px);
+
+  top: 0;
+  z-index: 999;
+  height: 64px;
+  position: sticky;
+  color: $color-gray-light;
+  backdrop-filter: blur(16px);
+  background: rgba(34, 40, 49, 0.88);
+
+  @include mobile {
+    .masthead-button {
+      display: none;
+    }
+  }
+
+  //
+  .container {
+    @include flex(row, space-between, center, 0);
+  }
+}
+
+// hero
+.hero {
+  @include flex(row, center, center, 32px);
+
+  height: 100%;
+  color: $color-white;
+  min-height: calc(100vh - 64px);
+
+  @include desktop {
+    min-height: unset;
+  }
+
+  //
+  &__banner {
+    @include flex(column, center, center, 32px);
+
+    width: 100%;
+    padding: 32px;
+    max-width: 768px;
+    margin-inline: auto;
+    border-radius: 16px;
+    background: linear-gradient(
+      90deg,
+      rgba(192, 46, 209, 0.32) 0%,
+      rgba(155, 88, 226, 0.32) 50%,
+      rgba(109, 139, 247, 0.32) 100%
+    );
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+}
+
+//
+.flexgrid {
+  @include flex(column, center, center, unset);
+  padding: 0;
+  min-height: 768px;
+  position: relative;
+
+  @include tablet {
+    min-height: unset;
+  }
+
+  &__banner {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    min-height: 512px;
+    object-fit: cover;
+    position: absolute;
+
+    @include tablet {
+      width: 100%;
+      position: unset;
+    }
+  }
+
+  //
+  .container {
+    @include flex(row, space-between, unset, 0 256px);
+
+    @include tablet {
+      @include flex(column, unset, unset, 0);
+      width: 100%;
+    }
+  }
+}
+
+.flexgrid__column {
+  @include flex(column, unset, unset, 64px 0);
+  width: 50%;
+  padding: 128px 0;
+
+  @include tablet {
+    width: 100%;
+    padding: 64px 32px;
+    position: relative;
+  }
+  &--bg::before {
+    top: 0;
+    right: 0;
+    width: 50%;
+    z-index: -1;
+    content: "";
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    position: absolute;
+    background: $color-dark-light;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+}
+
+// colophon
+.colophon {
+  padding: 64px 0;
+
+  &__info {
+    @include flex(column, unset, unset, 8px 32px);
+  }
+
+  //
+  &__contact {
+    @include flex(row, center, unset, 8px 32px);
+    flex-wrap: wrap;
+
+    @include tablet {
+      justify-content: center;
+    }
+  }
+
+  //
+  .container {
+    @include flex(row, space-between, unset, 32px);
+    flex-wrap: wrap;
+
+    @include tablet {
+      justify-content: center;
+    }
+  }
+}
